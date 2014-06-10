@@ -1,0 +1,6 @@
+development:
+  remote_storage:
+    AWS_ACCESS_KEY_ID: "< here here >"
+    AWS_SECRET_ACCESS_KEY: "< here here >"
+    AWS_REGION: "(e.g. us-west-2)"
+  solr_url: "http://localhost:8983/solr"
