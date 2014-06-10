@@ -33,7 +33,7 @@ class Indexer
     puts "Transforming #{records.count} records"
     transformed = transform(records)
     puts "Adding transformed records to index" unless @is_test
-    # response = add transformed unless @is_test
+    response = add transformed unless @is_test
   end
 
 
