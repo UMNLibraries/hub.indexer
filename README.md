@@ -16,8 +16,10 @@ chmod +x run.sh
 
 ### Configure the indexer
 
+`vim config/config.yml`
+
+
 ```
-vim config/config.yml
 production:
   remote_storage:
     AWS_ACCESS_KEY_ID: "<key here>"
@@ -27,7 +29,7 @@ production:
   transformer:
     api_key: "<key here>"
     base_url: "http://hub-services.lib.umn.edu/api/v1/transform"
----
+```
 
 ### Test the transformation profile
 
