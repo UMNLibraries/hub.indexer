@@ -14,6 +14,21 @@ cd dpla.hub.indexer
 chmod +x run.sh
 ```
 
+### Configure the indexer
+
+```
+vim config/config.yml
+production:
+  remote_storage:
+    AWS_ACCESS_KEY_ID: "<key here>"
+    AWS_SECRET_ACCESS_KEY: "<key here>"
+    AWS_REGION: "us-west-2"
+  solr_url: "http://localhost:8983/solr"
+  transformer:
+    api_key: "<key here>"
+    base_url: "http://hub-services.lib.umn.edu/api/v1/transform"
+---
+
 ### Test the transformation profile
 
 `./run.sh  -l 5 -b dpla.hub.your.bucket.here -t true`
