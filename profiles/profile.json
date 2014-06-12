@@ -172,18 +172,12 @@
                     }
                 ]
             },
-            "sourceResource_creator_s": {
+            "sourceResource_creator_sm": {
                 "origins": [
                     {
                         "path": "sourceResource/creator"
                     }
-                ],
-               "processors": [
-                 {
-                   "process": "to_s"
-                 }
-               ]
-
+                ]
             },
             "sourceResource_date_begin_s": {
                 "origins": [
@@ -255,16 +249,11 @@
                     }
                 ]
             },
-            "sourceResource_publisher_s": {
+            "sourceResource_publisher_sm": {
                 "origins": [
                     {
                         "path": "sourceResource/publisher"
                     }
-                ],
-		"processors": [
-		    {
-		        "process": "to_s"
-		    }
                 ]
             },
             "sourceResource_rights_s": {
