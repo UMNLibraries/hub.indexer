@@ -14,15 +14,6 @@ cd dpla.hub.indexer
 chmod +x run.sh
 ```
 
-#### Configure and test the transformation profile
-
-_(sorry, profile creation is still undocumented)_
-
-```
-cp config/example.profile.json config/profile.json
-vim config/profile.json
-```
-
 ### Test the transformation profile
 
 `./run.sh  -l 5 -b dpla.hub.your.bucket.here -t true`
