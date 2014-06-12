@@ -64,17 +64,6 @@
                         "path": "sourceResource/subject"
                     }
                 ],
-                "processors": [
-                    {
-                        "process": "slice_each",
-                        "args": [
-                            "name"
-                        ]
-                    },
-                    {
-                    "process": "rstrip"
-                    }
-                ]
             },
             "author_t": {
                 "origins": [
