@@ -2,10 +2,11 @@ require 'rsolr'
 
 class Indexer
 
-  def initialize(url, bucket, delete_bucket = nil, test = nil)
+  def initialize(url, bucket, delete_bucket = false, drop_index = false, test = nil)
     @solr = RSolr.connect :url => url
     @bucket = bucket
     delete_bucket_index(bucket) if delete_bucket
+    drop_entire_index if drop_index
     @is_test = test
   end
 
@@ -25,8 +26,8 @@ class Indexer
     @solr.optimize
   end
 
-  def drop_index
-    solr.delete_by_query "*:*"
+  def drop_entire_index
+    @solr.delete_by_query "*:*"
   end
 
   def push(records)

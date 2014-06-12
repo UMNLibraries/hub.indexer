@@ -24,6 +24,9 @@ OptionParser.new do |opts|
   opts.on("-d", "--delete-bucket", "Delete the records for a given bucket from S3.") do |delete_bucket|
     options[:delete_bucket] = delete_bucket
   end
+  opts.on("-i", "--drop-index", "CAREFUL! Drop the whole solr index.") do |drop_index|
+    options[:drop_index] = drop_index
+  end
 end.parse!
 options[:region] = (options[:region]) ? options[:region] : APP_CONFIG['remote_storage']['AWS_REGION']
 options[:profile_name] = (options[:profile_name]) ? options[:profile_name] : 'profile.json'

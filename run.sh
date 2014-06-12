@@ -6,7 +6,7 @@ records = []
 bucket.limit  = OPTS[:limit]
 bucket.marker = OPTS[:marker]
 i = 1
-indexer = Indexer.new(APP_CONFIG['solr_url'], OPTS[:bucket], OPTS[:delete_bucket], OPTS[:test])
+indexer = Indexer.new(APP_CONFIG['solr_url'], OPTS[:bucket], OPTS[:delete_bucket], OPTS[:drop_index], OPTS[:test])
 bucket.each do |key, item|
   puts "#{i} - Fetching S3 item: #{key}"
   item['id'] = key
