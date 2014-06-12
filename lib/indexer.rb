@@ -40,8 +40,9 @@ class Indexer
   def transform(records)
     transformer = Transformer.new(PROFILE)
     transformation = JSON.parse(transformer.post(records))
-    puts "#{JSON.pretty_generate(transformation)}" if @is_test
     transformation['records'].map { |record| record.merge({'bucket_s' => @bucket}) }
+    puts "#{JSON.pretty_generate(transformation)}"
+    transformation['records']
   end
 
   def push_batch(records, push_now = true)

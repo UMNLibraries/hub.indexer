@@ -7,7 +7,7 @@ class Transformer
   def post(extraction, enrichments = nil)
     if extraction
       begin
-        resource = RestClient::Resource.new(@profile['transformer']['base_url'],
+        resource = RestClient::Resource.new(APP_CONFIG['transformer']['base_url'],
           :timeout => 600,
           :open_timeout => 60,
           :content_type => :json,
@@ -18,7 +18,7 @@ class Transformer
               :profile => @profile.to_json,
               :records => extraction.to_json,
               :enrichments => enrichments.to_json,
-              :api_key => @profile['transformer']['api_key']
+              :api_key => APP_CONFIG['transformer']['api_key']
             }
           )
       rescue => e

@@ -26,4 +26,5 @@ OptionParser.new do |opts|
   end
 end.parse!
 options[:region] = (options[:region]) ? options[:region] : APP_CONFIG['remote_storage']['AWS_REGION']
+options[:profile_name] = (options[:profile_name]) ? options[:profile_name] : 'profile.json'
 OPTS = options

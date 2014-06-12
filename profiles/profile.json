@@ -1,0 +1,356 @@
+{
+    "extractor": {
+        "records": {
+            "origin_path": "records",
+        }
+    },
+    "transformer": {
+        "fields": {
+            "id": {
+                "origins": [
+                    {
+                        "path": "id"
+                    }
+                ]
+            },
+            "title_display": {
+                "origins": [
+                    {
+                        "path": "sourceResource/title"
+                    }
+                ],
+               "processors": [
+                 {
+                   "process": "to_s"
+                 }
+               ]
+            },
+            "title_t": {
+                "origins": [
+                    {
+                        "path": "sourceResource/title"
+                    }
+               ],
+               "processors": [
+                 {
+                   "process": "to_s"
+                 }
+               ]
+
+
+            },
+            "title_sort": {
+                "origins": [
+                    {
+                        "path": "sourceResource/title"
+                    }
+                ],
+               "processors": [
+                 {
+                   "process": "to_s"
+                 }
+               ]
+            },
+            "language_facet": {
+                "origins": [
+                    {
+                        "path": "sourceResource/language/name"
+                    }
+                ]
+            },
+            "subject_topic_facet": {
+                "origins": [
+                    {
+                        "path": "sourceResource/subject"
+                    }
+                ],
+                "processors": [
+                    {
+                        "process": "slice_each",
+                        "args": [
+                            "name"
+                        ]
+                    },
+                    {
+                    "process": "rstrip"
+                    }
+                ]
+            },
+            "author_t": {
+                "origins": [
+                    {
+                        "path": "sourceResource/creator"
+                    }
+                ]
+            },
+            "author_display": {
+                "origins": [
+                    {
+                        "path": "sourceResource/creator"
+                    }
+                ],
+               "processors": [
+                 {
+                   "process": "to_s"
+                 }
+               ]
+            },
+            "author_sort": {
+                "origins": [
+                    {
+                        "path": "sourceResource/creator"
+                    }
+                ],
+               "processors": [
+                 {
+                   "process": "to_s"
+                 }
+               ]
+
+            },
+            "object_s": {
+                "origins": [
+                    {
+                        "path": "object"
+                    }
+                ]
+            },
+
+            "dataProvider_s": {
+                "origins": [
+                    {
+                        "path": "dataProvider"
+                    }
+                ]
+            },
+            "isShownAt_s": {
+                "origins": [
+                    {
+                        "path": "isShownAt"
+                    }
+                ]
+            },
+            "provider_id_s": {
+                "origins": [
+                    {
+                        "path": "provider/id"
+                    }
+                ]
+            },
+            "provider_name_s": {
+                "origins": [
+                    {
+                        "path": "provider/name"
+                    }
+                ]
+            },
+            "sourceResource_collection_title_s`": {
+                "origins": [
+                    {
+                        "path": "collection/title"
+                    }
+                ]
+            },
+            "sourceResource_collection_description_txt": {
+                "origins": [
+                    {
+                        "path": "sourceResource/collection/description"
+                    }
+                ]
+            },
+            "sourceResource_collection_id_s": {
+                "origins": [
+                    {
+                        "path": "sourceResource/collection/@id"
+                    }
+                ]
+            },
+            "sourceResource_contributor_s": {
+                "origins": [
+                    {
+                        "path": "sourceResource/contributor"
+                    }
+                ]
+            },
+            "sourceResource_creator_s": {
+                "origins": [
+                    {
+                        "path": "sourceResource/creator"
+                    }
+                ],
+               "processors": [
+                 {
+                   "process": "to_s"
+                 }
+               ]
+
+            },
+            "sourceResource_date_begin_s": {
+                "origins": [
+                    {
+                        "path": "sourceResource/date/begin"
+                    }
+                ]
+            },
+            "sourceResource_date_end_s": {
+                "origins": [
+                    {
+                        "path": "sourceResource/date/begin"
+                    }
+                ]
+            },
+            "sourceResource_date_displaydate_s": {
+                "origins": [
+                    {
+                        "path": "sourceResource/date/displayDate"
+                    }
+                ]
+            },
+            "sourceResource_description_txt": {
+                "origins": [
+                    {
+                        "path": "sourceResource/description"
+                    }
+                ]
+            },
+            "sourceResource_extent_s": {
+                "origins": [
+                    {
+                        "path": "sourceResource/extent"
+                    }
+                ]
+            },
+            "sourceResource_format_sm": {
+                "origins": [
+                    {
+                        "path": "sourceResource/format"
+                    }
+                ]
+            },
+            "format": {
+                "origins": [
+                    {
+                        "path": "sourceResource/format"
+                    }
+                ]
+            },
+            "sourceResource_identifier_s": {
+                "origins": [
+                    {
+                        "path": "sourceResource/identifier"
+                    }
+                ]
+            },
+            "sourceResource_language_name_s": {
+                "origins": [
+                    {
+                        "path": "sourceResource/language/name"
+                    }
+                ]
+            },
+            "sourceResource_language_iso639_s": {
+                "origins": [
+                    {
+                        "path": "sourceResource/language/iso639"
+                    }
+                ]
+            },
+            "sourceResource_publisher_s": {
+                "origins": [
+                    {
+                        "path": "sourceResource/publisher"
+                    }
+                ],
+		"processors": [
+		    {
+		        "process": "to_s"
+		    }
+                ]
+            },
+            "sourceResource_rights_s": {
+                "origins": [
+                    {
+                        "path": "sourceResource/rights"
+                    }
+                ]
+            },
+            "sourceResource_spatial_coordinates_p": {
+                "origins": [
+                    {
+                        "path": "sourceResource/spatial[first()]/coordinates"
+                    }
+                ]
+            },
+            "sourceResource_spatial_coordinates_s": {
+                "origins": [
+                    {
+                        "path": "sourceResource/spatial[first()]/coordinates"
+                    }
+                ]
+            },
+            "sourceResource_spatial_city_s": {
+                "origins": [
+                    {
+                        "path": "sourceResource/spatial[0]/city"
+                    }
+                ]
+            },
+           "sourceResource_spatial_county_s": {
+                "origins": [
+                    {
+                        "path": "sourceResource/spatial[0]/county"
+                    }
+                ]
+            },
+           "sourceResource_spatial_name_s": {
+                "origins": [
+                    {
+                        "path": "sourceResource/spatial[0]/name"
+                    }
+                ]
+            },
+           "sourceResource_spatial_region_s": {
+                "origins": [
+                    {
+                        "path": "sourceResource/spatial[0]/region"
+                    }
+                ]
+            },
+           "subject_geo_facet": {
+                "origins": [
+                    {
+                        "path": "sourceResource/spatial[0]/region"
+                    }
+                ]
+            },
+           "sourceResource_spatial_state_s": {
+                "origins": [
+                    {
+                        "path": "sourceResource/spatial[0]/state"
+                    }
+                ]
+            },
+            "sourceResource_physicalMedium_s": {
+                "origins": [
+                    {
+                        "path": "sourceResource/physicalMedium"
+                    }
+                ]
+            },
+            "sourceResource_type_s": {
+                "origins": [
+                    {
+                        "path": "sourceResource/type"
+                    }
+                ]
+            },
+            "originalRecord_txt": {
+                "origins": [
+                    {
+                        "path": "originalRecord"
+                    }
+                ]
+            }
+        }
+    }
+}
