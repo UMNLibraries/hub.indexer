@@ -261,6 +261,11 @@
                     {
                         "path": "sourceResource/rights"
                     }
+                ],
+                "processors": [
+                    {
+                        "process": "to_s"
+                    }
                 ]
             },
             "sourceResource_spatial_coordinates_p": {
