@@ -3,6 +3,11 @@
 
 The DPLA Hub Indexer is a simple script that allows you to index S3 buckets using a running instance of the [dpla.services](https://github.com/UMNLibraries/dpla.services) application. 
 
+To obtain a dpla.services api key, issue the following request:
+
+`curl -d "api_key[email]=<your email here>@foo.com" http://hub-services.lib.umn.edu/api-key/`
+
+
 ## Installation
 
 
@@ -14,13 +19,21 @@ cd dpla.hub.indexer
 chmod +x run.sh
 ```
 
-#### Configure and test the transformation profile
+### Configure the indexer
 
-_(sorry, profile creation is still undocumented)_
+`vim config/config.yml`
+
 
 ```
-cp config/example.profile.json config/profile.json
-vim config/profile.json
+production:
+  remote_storage:
+    AWS_ACCESS_KEY_ID: "<key here>"
+    AWS_SECRET_ACCESS_KEY: "<key here>"
+    AWS_REGION: "us-west-2"
+  solr_url: "http://localhost:8983/solr"
+  transformer:
+    api_key: "<key here>"
+    base_url: "http://hub-services.lib.umn.edu/api/v1/transform"
 ```
 
 ### Test the transformation profile
