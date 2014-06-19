@@ -341,6 +341,11 @@
                     {
                         "path": "sourceResource/type"
                     }
+                ],
+                "processors": [
+                    {
+                        "process": "to_s"
+                    }
                 ]
             },
             "originalRecord_txt": {
