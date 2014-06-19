@@ -226,6 +226,11 @@
                     {
                         "path": "sourceResource/format"
                     }
+                ],
+                "processors": [
+                    {
+                        "process": "to_s"
+                    }
                 ]
             },
             "sourceResource_identifier_s": {
