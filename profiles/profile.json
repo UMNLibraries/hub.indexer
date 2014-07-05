@@ -144,7 +144,7 @@
                     }
                 ]
             },
-            "sourceResource_collection_title_s`": {
+            "sourceResource_collection_title_s": {
                 "origins": [
                     {
                         "path": "collection/title"
