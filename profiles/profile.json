@@ -6,6 +6,13 @@
     },
     "transformer": {
         "fields": {
+            "status_s": {
+                "origins": [
+                    {
+                        "path": "status"
+                    }
+                ]
+            },
             "id": {
                 "origins": [
                     {
