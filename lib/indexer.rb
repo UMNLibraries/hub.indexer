@@ -41,7 +41,7 @@ class Indexer
   def transform(records)
     transformer = Transformer.new(PROFILE)
     transformation = JSON.parse(transformer.post(records))
-    transformation['records'].map { |record| record.merge({'bucket_s' => @bucket}) }
+    transformation['records'].map { |record| record['bucket_s'] = @bucket }
     transformation['records'].map { |record| record.delete('originalRecord') }
     puts "#{JSON.pretty_generate(transformation)}" if @is_test
     transformation['records']
