@@ -2,16 +2,16 @@ require 'rsolr'
 
 class Indexer
 
-  def initialize(url, bucket, delete_bucket = false, drop_index = false, test = nil)
+  def initialize(url, batch_id, delete_batch = false, drop_index = false, test = nil)
     @solr = RSolr.connect :url => url
-    @bucket = bucket
-    delete_bucket_index(bucket) if delete_bucket
+    @batch_id = batch_id
+    delete_batch_from_index(batch_id) if delete_batch
     drop_entire_index if drop_index
     @is_test = test
   end
 
-  def delete_bucket_index(bucket)
-    @solr.delete_by_query "bucket_s:#{bucket}"
+  def delete_batch_from_index(batch_id)
+    @solr.delete_by_query "batch_id_s:#{batch_id}"
   end
 
   def add(records)
@@ -41,7 +41,7 @@ class Indexer
   def transform(records)
     transformer = Transformer.new(PROFILE)
     transformation = JSON.parse(transformer.post(records))
-    transformation['records'].map { |record| record['bucket_s'] = @bucket }
+    transformation['records'].map { |record| record['batch_id_s'] = @batch_id }
     transformation['records'].map { |record| record.delete('originalRecord') }
     puts "#{JSON.pretty_generate(transformation)}" if @is_test
     transformation['records']

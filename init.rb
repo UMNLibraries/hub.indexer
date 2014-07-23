@@ -8,6 +8,7 @@ APP_CONFIG = YAML.load_file("config/config.yml")[ENVIRONMENT]
 require './lib/options.rb'
 PROFILE = YAML.load_file("profiles/#{OPTS[:profile_name]}")
 
+require './lib/local_records.rb'
 require './lib/bucket.rb'
 require './lib/indexer.rb'
 require './lib/transformer.rb'
