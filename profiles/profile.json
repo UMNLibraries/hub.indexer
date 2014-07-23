@@ -123,7 +123,7 @@
                 ]
             },
 
-            "dataProvider_s": {
+            "dataProvider_sm": {
                 "origins": [
                     {
                         "path": "dataProvider"
@@ -172,7 +172,7 @@
                     }
                 ]
             },
-            "sourceResource_contributor_s": {
+            "sourceResource_contributor_sm": {
                 "origins": [
                     {
                         "path": "sourceResource/contributor"
@@ -240,7 +240,7 @@
                     }
                 ]
             },
-            "sourceResource_identifier_s": {
+            "sourceResource_identifier_sm": {
                 "origins": [
                     {
                         "path": "sourceResource/identifier"
