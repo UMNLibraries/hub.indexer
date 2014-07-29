@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 require './init.rb'
 
-indexer = Indexer.new(APP_CONFIG['solr_url'], OPTS[:batch_id], OPTS[:delete_batch], OPTS[:drop_index], OPTS[:test])
+indexer = Indexer.new(OPTS[:solr_url], OPTS[:batch_id], OPTS[:delete_batch], OPTS[:drop_index], OPTS[:test])
 
 if OPTS[:bucket]
   BucketParams = Struct.new(:bucket, :region, :limit, :marker)
