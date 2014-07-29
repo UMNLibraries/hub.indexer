@@ -15,7 +15,7 @@ OptionParser.new do |opts|
   opts.on("-b", "--bucket [BUCKET]", "The s3 bucket to index.") do |bucket|
     options[:bucket] = bucket
   end
-  opts.on("-d", "--directory [DIRECTORY]", "A directory that contains individual json records for indexing.") do |directory|
+  opts.on("-y", "--directory [DIRECTORY]", "A directory that contains individual json records for indexing.") do |directory|
     options[:directory] = directory
   end
   opts.on("-r", "--region [REGION]", "(Optionally Override the config.yml value) The s3 region where the bucket is located (e.g. us-west-2).") do |region|
