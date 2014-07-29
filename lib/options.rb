@@ -33,9 +33,13 @@ OptionParser.new do |opts|
   opts.on("-i", "--drop-index", "CAREFUL! Drop the whole solr index.") do |drop_index|
     options[:drop_index] = drop_index
   end
+  opts.on("-s", "--solr-url", "The URL of the solr instance.") do |solr_url|
+    options[:solr_url] = solr_url
+  end
 end.parse!
 # Always use the bucket ID as the batch ID, unless otherwise directed
 options[:batch_id] = (options[:bucket] && !options[:batch_id]) ? options[:bucket] : options[:batch_id]
 options[:region] = (options[:region]) ? options[:region] : APP_CONFIG['remote_storage']['AWS_REGION']
+options[:solr_url] = (options[:solr_url]) ? options[:solr_url] : APP_CONFIG['solr_url']
 options[:profile_name] = (options[:profile_name]) ? options[:profile_name] : 'profile.json'
 OPTS = options
