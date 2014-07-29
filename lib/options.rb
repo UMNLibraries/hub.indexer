@@ -33,7 +33,7 @@ OptionParser.new do |opts|
   opts.on("-i", "--drop-index", "CAREFUL! Drop the whole solr index.") do |drop_index|
     options[:drop_index] = drop_index
   end
-  opts.on("-s", "--solr-url", "The URL of the solr instance.") do |solr_url|
+  opts.on("-s", "--solr-url [SOLR_URL]", "The URL of the solr instance.") do |solr_url|
     options[:solr_url] = solr_url
   end
 end.parse!
