@@ -44,7 +44,6 @@ end.parse!
 options[:batch_id] = (options[:bucket] && !options[:batch_id]) ? options[:bucket] : options[:batch_id]
 options[:region] = (options[:region]) ? options[:region] : APP_CONFIG['remote_storage']['AWS_REGION']
 options[:solr_url] = (options[:solr_url]) ? options[:solr_url] : APP_CONFIG['solr_url']
-options[:solr_push_count] = (options[:solr_push_count]) ? options[:solr_push_count] : 1000
-
+options[:solr_push_count] = (options[:solr_push_count].to_i) ? options[:solr_push_count] : 1000
 options[:profile_name] = (options[:profile_name]) ? options[:profile_name] : 'profile.json'
 OPTS = options
