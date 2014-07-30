@@ -214,7 +214,7 @@
                     }
                 ]
             },
-            "sourceResource_extent_s": {
+            "sourceResource_extent_sm": {
                 "origins": [
                     {
                         "path": "sourceResource/extent"
