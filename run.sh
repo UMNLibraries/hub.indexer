@@ -20,7 +20,7 @@ originals.each do |key, original|
   puts "#{i} - Fetching item: #{key}"
   original['id'] = key
   records << original
-  records = indexer.push_batch records, records.count == 1000
+  records = indexer.push_batch records, records.count == OPTS[:solr_push_count]
   i = i + 1
 end
 puts "Indexing #{records.count} remaining records."
