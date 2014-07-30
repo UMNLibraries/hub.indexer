@@ -200,7 +200,7 @@
                     }
                 ]
             },
-            "sourceResource_date_displaydate_s": {
+            "sourceResource_date_displaydate_sm": {
                 "origins": [
                     {
                         "path": "sourceResource/date/displayDate"
