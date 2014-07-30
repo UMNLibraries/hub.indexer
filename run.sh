@@ -15,6 +15,7 @@ end
 
 i = 1
 records = []
+indexer.commit
 originals.each do |key, original|
   puts "#{i} - Fetching item: #{key}"
   original['id'] = key
