@@ -1,7 +1,7 @@
 
 ## About
 
-The DPLA Hub Indexer is a simple script that allows you to index S3 buckets using a running instance of the [dpla.services](https://github.com/UMNLibraries/dpla.services) application. 
+The DPLA Hub Indexer is a simple script that allows you to index S3 buckets using a running instance of the [dpla.services](https://github.com/UMNLibraries/dpla.services) application.
 
 To obtain a dpla.services api key, issue the following request:
 

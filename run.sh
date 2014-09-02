@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 require './init.rb'
-
+start_time = Time.now
 indexer = Indexer.new(OPTS[:solr_url], OPTS[:batch_id], OPTS[:delete_batch], OPTS[:drop_index], OPTS[:test])
 
 if OPTS[:bucket]
@@ -9,10 +9,7 @@ if OPTS[:bucket]
   originals = Bucket.new(bucket_params)
 end
 
-if OPTS[:directory]
-  originals = LocalRecords.new(OPTS[:directory])
-end
-
+originals = LocalRecords.new(OPTS[:directory], OPTS[:limit], OPTS[:marker]) if OPTS[:directory]
 i = 1
 records = []
 indexer.commit
@@ -20,11 +17,12 @@ originals.each do |key, original|
   puts "#{i} - Fetching item: #{key}"
   original['id'] = key
   records << original
-  records = indexer.push_batch records, records.count == OPTS[:solr_push_count]
+  records = indexer.push_batch(records, records.count == 1000)
   i = i + 1
 end
 puts "Indexing #{records.count} remaining records."
-indexer.push_batch records
+indexer.push_batch records, true
 indexer.commit
 
-
+elapsed = Time.now - start_time
+puts "Elapsed time: #{elapsed}"

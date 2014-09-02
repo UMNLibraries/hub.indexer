@@ -1,17 +1,27 @@
 class LocalRecords
-  def initialize(dir)
+  def initialize(dir, limit, marker)
     @dir = dir
+    @limit = limit
+    @marker = marker
   end
 
   def each
+    i = 1
     Dir.glob("#{@dir}/*.json") do |filepath|
+      @marked = reached_marker?(@marker, id(filepath)) if !@marked
       file = File.open(filepath, 'r')
-      yield(id(filepath), process_record(file.read))
+      yield(id(filepath), process_record(file.read)) if @marked
+      break if @limit == i
+      i = i + 1 if @marked
     end
   end
 
+  def reached_marker?(marker, filename)
+    (filename == marker || marker.nil?) ? true : false
+  end
+
   def id(path)
-    File.basename(path).gsub(/\.json/, '')
+    File.basename(path, ".*")
   end
 
   def process_record(record)

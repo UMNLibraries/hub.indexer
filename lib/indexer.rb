@@ -43,8 +43,13 @@ class Indexer
     transformation = JSON.parse(transformer.post(records))
     transformation['records'].map { |record| record['batch_id_s'] = @batch_id }
     transformation['records'].map { |record| record.delete('originalRecord') }
-    puts "#{JSON.pretty_generate(transformation)}" if @is_test
+    write_transformations(transformation) if @is_test
     transformation['records']
+  end
+
+  def write_transformations(transformation)
+    name = Digest::MD5.hexdigest transformation.to_s
+    File.open("transformed/#{name}.json", 'w') { |file| file.write(JSON.pretty_generate(transformation)) }
   end
 
   def push_batch(records, push_now = true)
