@@ -41,6 +41,13 @@
           }
         ]
       },
+      "intermediateProvider_s": {
+        "origins": [
+          {
+            "path": "intermediateProvider"
+          }
+        ]
+      },
       "title_t": {
         "origins": [
           {
