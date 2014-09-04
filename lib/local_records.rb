@@ -6,13 +6,13 @@ class LocalRecords
   end
 
   def each
-    i = 1
+    i = 0
     Dir.glob("#{@dir}/*.json") do |filepath|
       @marked = reached_marker?(@marker, id(filepath)) if !@marked
       file = File.open(filepath, 'r')
       yield(id(filepath), process_record(file.read)) if @marked
-      break if @limit == i
       i = i + 1 if @marked
+      break if @limit == i
     end
   end
 
