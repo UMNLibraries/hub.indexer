@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby
-require './init.rb'
+require_relative './init.rb'
 start_time = Time.now
 indexer = Indexer.new(OPTS[:solr_url], OPTS[:batch_id], OPTS[:delete_batch], OPTS[:drop_index], OPTS[:test])
 

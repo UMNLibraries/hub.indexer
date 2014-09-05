@@ -37,7 +37,6 @@ class Indexer
     response = add transformed unless @is_test
   end
 
-
   def transform(records)
     transformer = Transformer.new(PROFILE)
     transformation = JSON.parse(transformer.post(records))
