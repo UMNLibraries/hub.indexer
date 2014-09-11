@@ -41,6 +41,27 @@
           }
         ]
       },
+      "title_unstem_search": {
+        "origins": [
+          {
+            "path": "sourceResource/title"
+          }
+        ],
+        "processors": [
+          {
+            "process": "strip"
+          },
+          {
+            "process": "flatten"
+          },
+          {
+            "process": "join",
+            "args": [
+              " "
+            ]
+          }
+        ]
+      },
       "intermediateProvider_s": {
         "origins": [
           {
@@ -115,14 +136,50 @@
           }
         ]
       },
-      "author_t": {
+      "subject_t": {
+        "origins": [
+          {
+            "path": "sourceResource/subject"
+          }
+        ],
+        "processors": [
+          {
+            "process": "slice_each",
+            "args": [
+              "name"
+            ]
+          },
+          {
+            "process": "rstrip"
+          }
+        ]
+      },
+      "subject_unstem_search": {
+        "origins": [
+          {
+            "path": "sourceResource/subject"
+          }
+        ],
+        "processors": [
+          {
+            "process": "slice_each",
+            "args": [
+              "name"
+            ]
+          },
+          {
+            "process": "rstrip"
+          }
+        ]
+      },
+      "creator_t": {
         "origins": [
           {
             "path": "sourceResource/creator"
           }
         ]
       },
-      "author_display": {
+      "creator_display": {
         "origins": [
           {
             "path": "sourceResource/creator"
@@ -134,7 +191,19 @@
           }
         ]
       },
-      "author_sort": {
+      "creator_unstem_search": {
+        "origins": [
+          {
+            "path": "sourceResource/creator"
+          }
+        ],
+        "processors": [
+          {
+            "process": "to_s"
+          }
+        ]
+      },
+      "creator_sort": {
         "origins": [
           {
             "path": "sourceResource/creator"
@@ -237,24 +306,10 @@
           }
         ]
       },
-      "sourceResource_creator_s": {
+      "sourceResource_creator_display": {
         "origins": [
           {
             "path": "sourceResource/creator"
-          }
-        ],
-        "processors": [
-          {
-            "process": "strip"
-          },
-          {
-            "process": "flatten"
-          },
-          {
-            "process": "join",
-            "args": [
-              ""
-            ]
           }
         ]
       },
@@ -373,14 +428,14 @@
       "format": {
         "origins": [
           {
-            "path": "sourceResource/format"
+            "path": "sourceResource/type"
           }
         ],
         "processors": [
           {
             "process": "to_s"
           }
-        ]
+        ],
       },
       "sourceResource_identifier_s": {
         "origins": [
@@ -521,7 +576,17 @@
         ],
         "processors": [
           {
-            "process": "to_s"
+            "process": "join",
+            "args": [
+              "  "
+            ]
+          }
+        ]
+      },
+      "dpla_id_s": {
+        "origins": [
+          {
+            "path": "dpla_id"
           }
         ]
       },
