@@ -445,6 +445,9 @@
             ]
           },
           {
+            "process": "downcase"
+          },
+          {
             "process": "gsub",
             "comment": "Image Replacements",
             "args": "http://hub-client.lib.umn.edu/lookups/2.json"
