@@ -433,9 +433,28 @@
         ],
         "processors": [
           {
-            "process": "to_s"
+            "process": "strip"
+          },
+          {
+            "process": "flatten"
+          },
+          {
+            "process": "join",
+            "args": [
+              ""
+            ]
+          },
+          {
+            "process": "gsub",
+            "comment": "Image Replacements",
+            "args": "http://hub-client.lib.umn.edu/lookups/2.json"
+          },
+          {
+            "process": "gsub",
+            "comment": "Text Replacements",
+            "args": "http://hub-client.lib.umn.edu/lookups/3.json"
           }
-        ],
+        ]
       },
       "sourceResource_identifier_s": {
         "origins": [
