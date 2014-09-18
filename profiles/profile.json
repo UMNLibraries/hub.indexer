@@ -172,6 +172,13 @@
           }
         ]
       },
+      "creator_facet": {
+        "origins": [
+          {
+            "path": "sourceResource/creator"
+          }
+        ]
+      },
       "creator_t": {
         "origins": [
           {
@@ -430,33 +437,6 @@
           {
             "path": "sourceResource/type"
           }
-        ],
-        "processors": [
-          {
-            "process": "strip"
-          },
-          {
-            "process": "flatten"
-          },
-          {
-            "process": "join",
-            "args": [
-              ""
-            ]
-          },
-          {
-            "process": "downcase"
-          },
-          {
-            "process": "gsub",
-            "comment": "Image Replacements",
-            "args": "http://hub-client.lib.umn.edu/lookups/2.json"
-          },
-          {
-            "process": "gsub",
-            "comment": "Text Replacements",
-            "args": "http://hub-client.lib.umn.edu/lookups/3.json"
-          }
         ]
       },
       "sourceResource_identifier_s": {
@@ -534,6 +514,25 @@
           }
         ]
       },
+      "sourceResource_location_facet": {
+        "origins": [
+          {
+            "path": "sourceResource/spatial[0]/city"
+          },
+          {
+            "path": "sourceResource/spatial[0]/county"
+          },
+          {
+            "path": "sourceResource/spatial[0]/state"
+          },
+          {
+            "path": "sourceResource/spatial[0]/region"
+          },
+          {
+            "path": "sourceResource/spatial[0]/name"
+          }
+        ]
+      },
       "sourceResource_spatial_coordinates_s": {
         "origins": [
           {
@@ -598,10 +597,29 @@
         ],
         "processors": [
           {
+            "process": "strip"
+          },
+          {
+            "process": "flatten"
+          },
+          {
             "process": "join",
             "args": [
-              "  "
+              ""
             ]
+          },
+          {
+            "process": "downcase"
+          },
+          {
+            "process": "gsub",
+            "comment": "Image Replacements",
+            "args": "http://hub-client.lib.umn.edu/lookups/2.json"
+          },
+          {
+            "process": "gsub",
+            "comment": "Text Replacements",
+            "args": "http://hub-client.lib.umn.edu/lookups/3.json"
           }
         ]
       },
