@@ -50,7 +50,7 @@ Index all records in a bucket:
 
 Index all records from a local directory:
 
-`./run.sh --directory /directory/to/your/json/files --batch_id some.name.here -t true`
+`./run.sh --directory /directory/to/your/json/files --batch_id some.name.here`
 
 Limit indexing to 10000 records in a bucket
 
