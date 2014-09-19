@@ -405,6 +405,20 @@
           {
             "path": "sourceResource/description"
           }
+        ],
+        "processors": [
+          {
+            "process": "strip"
+          },
+          {
+            "process": "flatten"
+          },
+          {
+            "process": "join",
+            "args": [
+              ""
+            ]
+          }
         ]
       },
       "sourceResource_extent_s": {
@@ -519,8 +533,17 @@
           }
         ],
         "processors": [
+        {
+            "process": "strip"
+          },
           {
-            "process": "to_s"
+            "process": "flatten"
+          },
+          {
+            "process": "join",
+            "args": [
+              ""
+            ]
           }
         ]
       },
