@@ -2,7 +2,24 @@
   "extractor": {
     "records": {
       "origin_path": "records"
-    }
+    },
+    "enrichments": [
+      {
+        "endpoint": "http://hub-client.lib.umn.edu/lookups/1.json",
+        "cache": false,
+        "key": "aath_match_terms"
+      },
+      {
+        "endpoint": "http://hub-client.lib.umn.edu/lookups/2.json",
+        "cache": false,
+        "key": "dc_image_type_replacements"
+      },
+      {
+        "endpoint": "http://hub-client.lib.umn.edu/lookups/3.json",
+        "cache": false,
+        "key": "dc_text_type_replacements"
+      }
+    ]
   },
   "transformer": {
     "fields": {
@@ -613,13 +630,11 @@
           },
           {
             "process": "gsub",
-            "comment": "Image Replacements",
-            "args": "http://hub-client.lib.umn.edu/lookups/2.json"
+            "args": {"enrichment": "dc_image_type_replacements" }
           },
           {
             "process": "gsub",
-            "comment": "Text Replacements",
-            "args": "http://hub-client.lib.umn.edu/lookups/3.json"
+            "args": {"enrichment": "dc_text_type_replacements" }
           }
         ]
       },
