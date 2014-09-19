@@ -7,9 +7,7 @@ To obtain a dpla.services api key, issue the following request:
 
 `curl -d "api_key[email]=<your email here>@foo.com" http://hub-services.lib.umn.edu/api-key/`
 
-
 ## Installation
-
 
 ### Download the project
 
@@ -35,20 +33,24 @@ production:
     api_key: "<key here>"
     base_url: "http://hub-services.lib.umn.edu/api/v1/transform"
 ```
+__Note__: S3 Configuration is optional. It is also possible to index from local files (see below).
+
 
 ### Test the transformation profile
 
-`./run.sh  -l 5 -b dpla.hub.your.bucket.here -t true`
+`./run.sh --directory /directory/to/your/json/files -l 5 --batch_id some.name.here -t true`
 
-The above command will transform five records (from the specified bucket that contains records in the DPLA
-JSON-LD format) and then output them following the rules established in your profile.json file (e.g. transformed
-into Blacklight-compliant solr docs).
+The above command will load five DPLA JSON-LD records from your local file system, submit them along with to the http://hub-services.lib.umn.edu transformer gateway along with the transformation rules located in the  `./profile/profile.json` file and then output them as solr docs) into a file in the `./transformed` directory of this repository. This way, you can see exactly what is being set to your solr instance.
 
 ## Usage Examples
 
 Index all records in a bucket:
 
 `./run.sh -b dpla.hub.your.bucket.here`
+
+Index all records from a local directory:
+
+`./run.sh --directory /directory/to/your/json/files --batch_id some.name.here -t true`
 
 Limit indexing to 10000 records in a bucket
 
@@ -57,4 +59,4 @@ Limit indexing to 10000 records in a bucket
 Limit indexing to 10000 records in a bucket beginning after the record named "`00051c04a23f9b6e89fcc9063966b6ea`"
 
 `./run.sh  -l 10000 -m 00051c04a23f9b6e89fcc9063966b6ea`
-  
+
