@@ -5,12 +5,14 @@ class Bucket
   attr_accessor :limit
   attr_accessor :marker
 
-  def initialize(params)
-    @params = params
-    config = APP_CONFIG['remote_storage']
+  BucketParams = Struct.new(:bucket, :region, :limit, :marker)
+
+  def initialize(opts)
+    # Note: use fetch to force an error for missing hash keys
+    @params = BucketParams.new(opts.fetch(:bucket), opts.fetch(:region), opts.fetch(:limit), opts.fetch(:marker))
     s3 = AWS::S3.new(
-      :access_key_id => config['AWS_ACCESS_KEY_ID'],
-      :secret_access_key => config['AWS_SECRET_ACCESS_KEY'],
+      :access_key_id => opts['remote_storage']['AWS_ACCESS_KEY_ID'],
+      :secret_access_key => opts['remote_storage']['AWS_SECRET_ACCESS_KEY'],
       :region => @params.region
       )
     @bucket = s3.buckets[@params.bucket]

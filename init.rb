@@ -13,4 +13,4 @@ require_relative './lib/local_records.rb'
 require_relative './lib/bucket.rb'
 require_relative './lib/indexer.rb'
 require_relative './lib/transformer.rb'
-
+require_relative './lib/etl.rb'

@@ -1,8 +1,8 @@
 class LocalRecords
-  def initialize(dir, limit, marker)
-    @dir = dir
-    @limit = limit
-    @marker = marker
+  def initialize(opts)
+    @dir = opts.fetch(:directory)
+    @limit = opts.fetch(:limit, nil)
+    @marker = opts.fetch(:marker, nil)
   end
 
   def each
