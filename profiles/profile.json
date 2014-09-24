@@ -18,6 +18,11 @@
         "endpoint": "http://hub-client.lib.umn.edu/lookups/3.json",
         "cache": false,
         "key": "dc_text_type_replacements"
+      },
+      {
+        "endpoint": "http://hub-client.lib.umn.edu/lookups/6.json",
+        "cache": false,
+        "key": "dc_sound_type_replacements"
       }
     ]
   },
@@ -658,6 +663,10 @@
           {
             "process": "gsub",
             "args": {"enrichment": "dc_text_type_replacements" }
+          },
+          {
+            "process": "gsub",
+            "args": {"enrichment": "dc_sound_type_replacements" }
           }
         ]
       },
