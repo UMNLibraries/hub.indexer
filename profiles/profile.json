@@ -648,6 +648,9 @@
             "process": "flatten"
           },
           {
+            "process": "unique"
+          },
+          {
             "process": "join",
             "args": [
               ""
