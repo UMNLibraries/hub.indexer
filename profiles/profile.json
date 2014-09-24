@@ -634,7 +634,7 @@
           }
         ]
       },
-      "sourceResource_type_s": {
+     "sourceResource_type_s": {
         "origins": [
           {
             "path": "sourceResource/type"
@@ -658,15 +658,22 @@
           },
           {
             "process": "gsub",
+            "args": {
+              "pattern": "[[:punct:]]",
+              "replacement": " "
+            }
+          },
+          {
+            "process": "gsub",
             "args": {"enrichment": "dc_image_type_replacements" }
           },
           {
             "process": "gsub",
-            "args": {"enrichment": "dc_text_type_replacements" }
+            "args": { "enrichment": "dc_text_type_replacements" }
           },
           {
             "process": "gsub",
-            "args": {"enrichment": "dc_sound_type_replacements" }
+            "args": {"enrichment": "dc_sound_type_replacements"}
           }
         ]
       },
