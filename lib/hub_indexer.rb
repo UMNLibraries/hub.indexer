@@ -2,7 +2,7 @@ require_relative '../init.rb'
 
 module HubIndexer
   class Runner
-    def initialize(options, profile)
+    def initialize(options, profile, &block)
       @originals  = fetch_originals(options)
       @indexer    = indexer(options)
       @profile    = profile
@@ -24,15 +24,26 @@ module HubIndexer
       i = 1
       records = []
       @originals.each do |key, original|
-        puts "#{i} - Fetching item: #{key}"
+        @fetch_listener.call(i, key) if @fetch_listener
         original['id'] = key
         records << original
         records = push_batch(records, records.count == @push_count)
         i = i + 1
       end
-      puts "Indexing #{records.count} remaining records."
       push_batch records, true
       @indexer.commit
+    end
+
+    def fetch_listener(&block)
+      @fetch_listener = block
+    end
+
+    def before_transform(&block)
+      @before_transform = block
+    end
+
+    def before_index(&block)
+      @before_index = block
     end
 
     def indexer(opts)
@@ -55,9 +66,9 @@ module HubIndexer
     end
 
     def push(records)
-      puts "Transforming #{records.count} records"
+      @before_transform.call(records) if @before_transform
       transformed = transform(records)
-      puts "Adding transformed records to index" unless @is_test
+      @before_index.call(records) if @before_index && !@is_test
       response = @indexer.add transformed unless @is_test
     end
 
