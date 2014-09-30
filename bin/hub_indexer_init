@@ -1,0 +1,19 @@
+#!/usr/bin/env ruby
+
+require 'fileutils'
+local_dir = Dir.pwd
+gem_dir   = File.dirname(__FILE__)
+system 'mkdir', '-p', "#{local_dir}/config"
+puts "[INFO] Created a local config directory"
+system 'mkdir', '-p', "#{local_dir}/test_transformed"
+puts "[INFO] Created a directory for transformed records that you wish to see prior to their being sent to the solr indexer."
+FileUtils.cp   "#{gem_dir}/../lib/generators/hub_indexer/templates/hub_indexer.yml", "#{local_dir}/config/hub_indexer.yml"
+puts "[INFO] Created a hub_indexer.yml file in your config directory. Edit this file to configure global hub_indexer options."
+FileUtils.cp   "#{gem_dir}/../lib/generators/hub_indexer/templates/profile.json", "#{local_dir}/config/profile.json"
+puts "[INFO] Created a default transformation profile in your config directory."
+FileUtils.cp   "#{gem_dir}/../lib/generators/hub_indexer/templates/run.sh", "#{local_dir}/run.sh"
+FileUtils.chmod "u=wrx", "#{local_dir}/run.sh"
+puts "[INFO] Created an executable file in the root of this directory which allows you to to run the hub_indexer in run.sh."
+FileUtils.cp_r "#{gem_dir}/../lib/generators/hub_indexer/templates/test_records/", "#{local_dir}/test_records/"
+puts "[INFO] Created some test records for you to use as you are getting started with the hub_indexer tool."
+puts "[DONE]"

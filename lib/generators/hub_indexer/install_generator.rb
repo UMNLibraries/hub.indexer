@@ -5,7 +5,7 @@ module HubIndexer
    desc "This generator copies a hub_indexer.yml config file to your Rails config directory"
 
     def copy_config
-      copy_file "hub_indexer.yml", "config/hub_indexer.yml"
+      copy_file "hub_indexer.yml", "config/example.hub_indexer.yml"
     end
   end
 end

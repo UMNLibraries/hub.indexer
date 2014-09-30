@@ -43,10 +43,10 @@ module HubIndexer
   end.parse!
   # Always use the bucket ID as the batch ID, unless otherwise directed
   options[:batch_id]        = (options[:bucket] && !options[:batch_id]) ? options[:bucket]                : options[:batch_id]
-  options[:region]          = (options[:region])                        ? options[:region]                : APP_CONFIG['remote_storage']['AWS_REGION']
+  options[:region]          = (options[:region])                        ? options[:region]                : HubIndexer::APP_CONFIG['remote_storage']['AWS_REGION']
   options[:solr_push_count] = (options[:solr_push_count])               ? options[:solr_push_count].to_i  : 1000
   options[:profile_name]    = (options[:profile_name])                  ? options[:profile_name]          : 'profile.json'
-  options[:solr_url]        = (options[:solr_url])                      ? options[:solr_url]              :  APP_CONFIG['solr_url']
+  options[:solr_url]        = (options[:solr_url])                      ? options[:solr_url]              : HubIndexer::APP_CONFIG['solr_url']
   options = HubIndexer::APP_CONFIG.merge(options)
   OPTS = options
 end

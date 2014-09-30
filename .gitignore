@@ -12,6 +12,5 @@
 *.o
 *.a
 mkmf.log
-config/config.yml
-transformed*
-json_data/*
+config/hub_indexer.yml
+config/profile.json

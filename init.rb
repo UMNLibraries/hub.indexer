@@ -4,11 +4,9 @@ require 'yaml'
 require 'open-uri'
 require 'rest_client'
 
-dir = File.dirname(__FILE__)
-ENVIRONMENT = (ENV['DHUB_INDEXER_ENV']) ? ENV['DHUB_INDEXER_ENV'] : 'development'
-HubIndexer::APP_CONFIG = YAML.load_file("#{dir}/config/config.yml")[ENVIRONMENT]
+HubIndexer::APP_CONFIG = YAML.load_file("#{Dir.pwd}/config/hub_indexer.yml")
 require_relative './lib/options.rb'
-HubIndexer::PROFILE = YAML.load_file("#{dir}/profiles/#{HubIndexer::OPTS[:profile_name]}")
+HubIndexer::PROFILE = YAML.load_file("#{Dir.pwd}/config/#{HubIndexer::OPTS[:profile_name]}")
 
 require_relative './lib/hub_indexer.rb'
 require_relative './lib/local_records.rb'

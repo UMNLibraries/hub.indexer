@@ -1,9 +1,0 @@
-development:
-  remote_storage:
-    AWS_ACCESS_KEY_ID: "< your key here >"
-    AWS_SECRET_ACCESS_KEY: "< your key here >"
-    AWS_REGION: "(e.g. us-west-2)"
-  solr_url: "http://localhost:8983/solr"
-  transformer:
-    api_key: "< Get an API Key by running: `curl -d "api_key[email]=youremail@youremail.com" hub-services.lib.umn.edu/api-key` >"
-    base_url: "http://hub-services.lib.umn.edu/api/v1/transform"
