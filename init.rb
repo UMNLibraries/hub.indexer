@@ -5,11 +5,5 @@ require 'open-uri'
 require 'rest_client'
 
 HubIndexer::APP_CONFIG = YAML.load_file("#{Dir.pwd}/config/hub_indexer.yml")
-require_relative './lib/options.rb'
+Dir[File.dirname(__FILE__) + "/lib/*.rb"].each {|file| require_relative file}
 HubIndexer::PROFILE = YAML.load_file("#{Dir.pwd}/config/#{HubIndexer::OPTS[:profile_name]}")
-
-require_relative './lib/hub_indexer.rb'
-require_relative './lib/local_records.rb'
-require_relative './lib/bucket.rb'
-require_relative './lib/indexer.rb'
-require_relative './lib/transformer.rb'
