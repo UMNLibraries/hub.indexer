@@ -1,4 +1,4 @@
-require "hub_indexer/version"
+require_relative "lib/hub_indexer/version"
 require 'aws-sdk'
 require 'yaml'
 require 'open-uri'
