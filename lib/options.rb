@@ -31,8 +31,8 @@ module HubIndexer
       opts.on("-p", "--profile-name [PROFILE_NAME]", "Specify which profile from the profile directory to use (e.g. -p u-of-m-profile.json).") do |profile_name|
         options[:profile_name] = profile_name
       end
-      opts.on("-d", "--delete-batch", "Delete the records for a given batch identifier (e.g. a bucket name).") do |delete_batch|
-        options[:delete_batch] = delete_batch
+      opts.on("-d", "--delete-by [DELETE_BY]", "Delete a record or records with a solr query (e.g. \"batch_id:foo\" or \"id:123123\".") do |delete_by|
+        options[:delete_by] = delete_by
       end
       opts.on("-i", "--drop-index", "CAREFUL! Drop the whole solr index.") do |drop_index|
         options[:drop_index] = drop_index

@@ -3,11 +3,12 @@ require_relative '../init.rb'
 module HubIndexer
   class Runner
     def initialize(options, profile, &block)
-      @originals  = fetch_originals(options)
-      @indexer    = indexer(options)
-      @profile    = profile
-      @push_count = options[:solr_push_count]
-      @is_test    = options[:test]
+      @options        = options
+      @indexer        = indexer(options)
+      @profile        = profile
+      @push_count     = options[:solr_push_count]
+      @is_test        = options[:test]
+      @delete_by      = options[:delete_by]
     end
 
     def fetch_originals(opts)
@@ -21,9 +22,15 @@ module HubIndexer
     end
 
     def run
+      upsert unless @delete_by
+      @indexer.delete_by(@delete_by) if @delete_by
+      @indexer.commit
+    end
+
+    def upsert
       i = 1
       records = []
-      @originals.each do |key, original|
+      fetch_originals(@options).each do |key, original|
         @fetch_listener.call(i, key) if @fetch_listener
         original['id'] = key
         records << original
@@ -31,7 +38,6 @@ module HubIndexer
         i = i + 1
       end
       push_batch records, true
-      @indexer.commit
     end
 
     def fetch_listener(&block)

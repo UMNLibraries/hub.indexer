@@ -9,6 +9,12 @@ module HubIndexer
       drop_entire_index if opts.fetch(:drop_index, false)
     end
 
+    # query e.g. "id:0970498b984f9314042f0911a7fa1187"
+    def delete_by(query)
+      puts "#{query}"
+      @solr.delete_by_query "#{query}"
+    end
+
     def delete_batch_from_index(batch_id)
       @solr.delete_by_query "batch_id_s:#{batch_id}"
     end
