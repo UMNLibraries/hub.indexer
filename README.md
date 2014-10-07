@@ -40,9 +40,9 @@ __Note__: S3 Configuration is optional. It is also possible to index from local 
 
 Transform and index one record (using sample records provided by the `hub_indexer_init` executable):
 
-`bundle exec ./run.sh -l 1 --batch_id test --directory ./test_records -t true`
+`bundle exec ./run.sh -l 1 --batch_id test --directory ./tmp/hub_indexer/records -t true`
 
-The above command will load 1 DPLA JSON-LD records from your local `./test_transformed` directory, submit them along with to the http://hub-services.lib.umn.edu transformer gateway along with the transformation rules located in the  `./config/profile.json` file and then output them as solr docs) into a file in the `./test_transformed` directory of this repository. This way, you can see exactly what is being set to your solr instance.
+The above command will load 1 DPLA JSON-LD records from your local `./tmp/hub_indexer/transformed` directory, submit them along with to the http://hub-services.lib.umn.edu transformer gateway along with the transformation rules located in the  `./config/profile.json` file and then output them as solr docs) into a file in the `./tmp/hub_indexer/transformed` directory of this repository. This way, you can see exactly what is being set to your solr instance.
 
 ## Usage Examples
 

@@ -61,7 +61,7 @@ module HubIndexer
 
     def write_transformations(transformation)
       name = Digest::MD5.hexdigest transformation.to_s
-      path = File.expand_path("#{Dir.pwd}/test_transformed/#{name}.json", __FILE__)
+      path = File.expand_path("#{Dir.pwd}/tmp/hub_indexer/transformed/#{name}.json", __FILE__)
       File.open(path, 'w') { |file| file.write(JSON.pretty_generate(transformation)) }
     end
 
