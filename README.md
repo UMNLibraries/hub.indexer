@@ -9,7 +9,8 @@ Install the hub_indexer gem, its dependencies along with its executables:
 ```
 mkdir hub_indexer
 cd hub_indexer
-echo "source 'https://rubygems.org'\n\ngem 'hub_indexer', :git => 'git@github.com:UMNLibraries/dpla.hub.indexer.git'" > Gemfile
+echo "source 'https://rubygems.org'" > Gemfile
+echo "gem 'hub_indexer', :git => 'git@github.com:UMNLibraries/dpla.hub.indexer.git'" >> Gemfile
 bundle install
 ```
 
