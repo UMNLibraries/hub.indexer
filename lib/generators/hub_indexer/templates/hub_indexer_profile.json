@@ -233,7 +233,10 @@
         ],
         "processors": [
           {
-            "process": "to_s"
+            "process": "join",
+            "args": [
+              ""
+            ]
           }
         ]
       },
@@ -277,6 +280,21 @@
           }
         ]
       },
+      "dataProvider_unstem_search": {
+        "origins": [
+          {
+            "path": "dataProvider"
+          }
+        ],
+        "processors": [
+          {
+            "process": "strip"
+          },
+          {
+            "process": "flatten"
+          }
+        ]
+      },
       "isShownAt_s": {
         "origins": [
           {
@@ -299,6 +317,13 @@
         ]
       },
       "sourceResource_collection_title_s": {
+        "origins": [
+          {
+            "path": "sourceResource/collection/title"
+          }
+        ]
+      },
+      "sourceResource_collection_title_unstem_search": {
         "origins": [
           {
             "path": "sourceResource/collection/title"
@@ -337,6 +362,13 @@
             "args": [
               ""
             ]
+          }
+        ]
+      },
+      "sourceResource_creator_unstem_search": {
+        "origins": [
+          {
+            "path": "sourceResource/creator"
           }
         ]
       },
