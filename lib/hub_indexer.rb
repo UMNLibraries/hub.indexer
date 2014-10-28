@@ -9,6 +9,7 @@ module HubIndexer
       @push_count     = options[:solr_push_count]
       @is_test        = options[:test]
       @delete_by      = options[:delete_by]
+      @batch_id       = options[:batch_id]
     end
 
     def fetch_originals(opts)
