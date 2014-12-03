@@ -408,6 +408,27 @@
           }
         ]
       },
+      "sourceResource_date_begin_i": {
+        "origins": [
+          {
+            "path": "sourceResource/date/begin"
+          }
+        ],
+        "processors": [
+          {
+            "process": "strip"
+          },
+          {
+            "process": "flatten"
+          },
+          {
+            "process": "join",
+            "args": [
+              ""
+            ]
+          }
+        ]
+      },
       "sourceResource_date_end_s": {
         "origins": [
           {
