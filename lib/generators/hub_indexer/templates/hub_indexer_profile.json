@@ -314,6 +314,14 @@
           {
             "path": "provider/name"
           }
+        ],
+        "processors": [
+          {
+            "process": "join",
+            "args": [
+              " "
+            ]
+          }
         ]
       },
       "sourceResource_collection_title_s": {
