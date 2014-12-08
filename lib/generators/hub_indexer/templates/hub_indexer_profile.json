@@ -38,6 +38,15 @@
           {
             "path": "status"
           }
+        ],
+        "record_filters": [
+          {
+            "run": "after_processors",
+            "reject_if": "matches",
+            "args": {
+              "pattern": "deleted"
+            }
+          }
         ]
       },
       "id": {
