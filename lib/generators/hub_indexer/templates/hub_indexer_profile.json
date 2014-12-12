@@ -441,7 +441,7 @@
       "sourceResource_date_end_s": {
         "origins": [
           {
-            "path": "sourceResource/date/begin"
+            "path": "sourceResource/date/end"
           }
         ],
         "processors": [
