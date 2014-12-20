@@ -38,15 +38,6 @@
           {
             "path": "status"
           }
-        ],
-        "record_filters": [
-          {
-            "run": "after_processors",
-            "reject_if": "matches",
-            "args": {
-              "pattern": "deleted"
-            }
-          }
         ]
       },
       "id": {
@@ -323,14 +314,6 @@
           {
             "path": "provider/name"
           }
-        ],
-        "processors": [
-          {
-            "process": "join",
-            "args": [
-              " "
-            ]
-          }
         ]
       },
       "sourceResource_collection_title_s": {
@@ -443,6 +426,12 @@
             }
           },
           {
+            "process": "suppress_if",
+            "args": {
+              "pattern": "BC"
+            }
+          },
+          {
             "process": "to_i"
           },
           {
@@ -451,27 +440,6 @@
               "pattern": "^0$",
               "replacement": ""
             }
-          }
-        ]
-      },
-      "sourceResource_date_end_s": {
-        "origins": [
-          {
-            "path": "sourceResource/date/end"
-          }
-        ],
-        "processors": [
-          {
-            "process": "strip"
-          },
-          {
-            "process": "flatten"
-          },
-          {
-            "process": "join",
-            "args": [
-              ""
-            ]
           }
         ]
       },
