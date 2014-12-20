@@ -435,6 +435,22 @@
             "args": [
               ""
             ]
+          },
+          {
+            "process": "suppress_if",
+            "args": {
+              "pattern": "\\?"
+            }
+          },
+          {
+            "process": "to_i"
+          },
+          {
+            "process": "gsub",
+            "args": {
+              "pattern": "^0$",
+              "replacement": ""
+            }
           }
         ]
       },
