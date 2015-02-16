@@ -420,25 +420,30 @@
             ]
           },
           {
-            "process": "suppress_if",
-            "args": {
-              "pattern": "\\?"
-            }
+            "process": "split",
+            "args": [
+              " - "
+            ]
           },
           {
-            "process": "suppress_if",
-            "args": {
-              "pattern": "BC"
-            }
+            "process": "first"
+          },
+          {
+            "process": "split",
+            "args": [
+              "-"
+            ]
+          },
+          {
+            "process": "first"
           },
           {
             "process": "to_i"
           },
           {
-            "process": "gsub",
+            "process": "suppress_unless",
             "args": {
-              "pattern": "^0$",
-              "replacement": ""
+              "pattern": "^((1[0-9][0-9][0-9])|(20[0-9][0-9]))$"
             }
           }
         ]
