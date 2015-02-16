@@ -28,7 +28,7 @@ Get a key from [http::hub-services.lib.umn.edu](hub-services.lib.umn.edu), allow
 Paste the key returned by the above command into the transformer:
 
 ```
-  vim config/config.yml
+  vim config/hub_indexer.yml
   ...
   solr_url: "http://localhost:8983/solr"
   transformer:
