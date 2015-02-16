@@ -1,3 +1,5 @@
+require 'restclient'
+
 module HubIndexer
   class Transformer
     def initialize(profile)
